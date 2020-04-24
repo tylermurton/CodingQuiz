@@ -142,7 +142,7 @@ function quizEnd() {
     document.getElementById('question').innerHTML = "All done! <br/><br/> You got " + time + "<br/> <p>Enter initials: <input type='text' id='initials' max='3'/><button id='submit'>Submit</button></p>";
 
     function saveHighscore() {
-        document.getElementById('initials').value.trim();
+       var initials = document.getElementById('initials').value.trim();
          // make sure value wasn't empty
       if (initials !== "") {
         // get saved scores from localstorage, or if not any, set to empty array
@@ -171,6 +171,8 @@ function quizEnd() {
     };
     
     document.getElementById('submit').onclick = saveHighscore;
+
+    document.getElementById('initials').onkeyup = checkForEnter;
 
 
 };
